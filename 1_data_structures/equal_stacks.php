@@ -11,8 +11,30 @@
  */
 
 function equalStacks($h1, $h2, $h3) {
-    // Write your code here
+    $h1 = array_reverse($h1);
+    $h2 = array_reverse($h2);
+    $h3 = array_reverse($h3);
 
+    $sum1 = array_sum($h1);
+    $sum2 = array_sum($h2);
+    $sum3 = array_sum($h3);
+
+    while (count($h1) > 0 && count($h2) > 0 && count($h3) > 0) {
+        $min = min($sum1, $sum2, $sum3);
+        while ($sum1 > $min) {
+            $sum1 -= array_pop($h1);
+        }
+        while ($sum2 > $min) {
+            $sum2 -= array_pop($h2);
+        }
+        while ($sum3 > $min) {
+            $sum3 -= array_pop($h3);
+        }
+        if ($sum1 == $sum2 && $sum1 == $sum3) {
+            return $sum1;
+        }
+    }
+    return 0;
 }
 
 $fptr = fopen(getenv("OUTPUT_PATH"), "w");

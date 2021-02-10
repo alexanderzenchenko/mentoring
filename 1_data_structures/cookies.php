@@ -4,10 +4,23 @@
  * Complete the cookies function below.
  */
 function cookies($k, $A) {
-    /*
-     * Write your code here.
-     */
-
+    $minHeap = new SplMinHeap();
+    foreach ($A as $item) {
+        $minHeap->insert($item);
+    }
+    try {
+        $count = 0;
+        while ($minHeap->top() < $k) {
+            $cookie1 = $minHeap->extract();
+            $cookie2 = $minHeap->extract();
+            $newCookie = $cookie1 + 2 * $cookie2;
+            $minHeap->insert($newCookie);
+            $count++;
+        }
+        return $count;
+    } catch (Exception $e) {
+        return -1;
+    }
 }
 
 $fptr = fopen(getenv("OUTPUT_PATH"), "w");
