@@ -65,8 +65,17 @@ function printDoublyLinkedList($node, $sep, $fptr)
  *
  */
 function reverse($head) {
-
-
+    while ($head != null) {
+        $tmp = $head->next;
+        $head->next = $head->prev;
+        $head->prev = $tmp;
+        if ($tmp != null) {
+            $head = $tmp;
+        } else {
+            break;
+        }
+    }
+    return $head;
 }
 
 $fptr = fopen(getenv("OUTPUT_PATH"), "w");
