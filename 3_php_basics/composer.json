@@ -1,0 +1,16 @@
+{
+    "name": "oleksandr_zenchenko/3_php_basics",
+    "authors": [
+        {
+            "name": "Oleksandr Zenchenko",
+            "email": "oleksandr_zenchenko@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Services\\": "services",
+            "Controllers\\": "controllers"
+        }
+    },
+    "require": {}
+}
