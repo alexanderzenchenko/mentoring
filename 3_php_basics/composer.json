@@ -12,5 +12,8 @@
             "Controllers\\": "controllers"
         }
     },
-    "require": {}
+    "require": {
+        "symfony/http-foundation": "^5.2",
+        "symfony/mime": "^5.2"
+    }
 }
